@@ -1,7 +1,8 @@
 var arr = [];
-const appent = document.getElementById("child-container");
-appent.innerHTML="No Data"
-
+console.log(arr)
+const fatchDataContainer = document.getElementById("child-container");
+fatchDataContainer.innerHTML="   No Data"
+//  x.style.margin="60px"
 const fetchLondon = () => {
   let createDataObj = {
     city: "",
@@ -14,24 +15,22 @@ const fetchLondon = () => {
   const city_name = document
     .getElementById("london")
     .getAttribute("data-value");
-    let match = find(city_name);
-    if(match >= 0){
-      console.log(match)
-      let id = `update${match}`
-      document.getElementById(id).classList.add('bg')
-    
+    let equalData = find(city_name);
+    // console.log(equalData)
+    if(equalData == city_name){
+      let id = `update${equalData}`
+      document.getElementById(id).classList.add('bg-highlight')
+    console.log(id)
     }else{
-  fetch(
-    `https://python3-dot-parul-arena-2.appspot.com/test?cityname=${city_name}`
-  )
+  fetch(`https://python3-dot-parul-arena-2.appspot.com/test?cityname=${city_name}`)
     .then((res) => res.json())
     .then((res) => {
-      createDataObj.city = res.city.name;
-      createDataObj.temp = res.list[0].main.temp;
-      createDataObj.pressure = res.list[0].main.pressure;
-      createDataObj.description = res.list[0].weather[0].main;
-      createDataObj.humidity = res.list[0].main.humidity;
-
+      console.log(res)
+      createDataObj.city =`${city_name}`;
+      createDataObj.description =  res.description;
+      createDataObj.temp = res.temp_in_celsius;
+      createDataObj.pressure = res.pressure_in_hPa;
+      createDataObj.humidity = res.humidity_in_percent;
       arr.push(createDataObj);
     });
   }
@@ -49,11 +48,11 @@ const FatchData = () => {
   const city_name = document
     .getElementById("new-york")
     .getAttribute("data-value");
-    let match = find(city_name);
-    if(match >= 0){
-      console.log(match)
-      let id = `update${match}`
-      document.getElementById(id).classList.add('bg')
+    let equalData = find(city_name);
+    if(equalData >= 0){
+      console.log(equalData)
+      let id = `update${equalData}`
+      document.getElementById(id).classList.add('bg-highlight')
     
     }else{
   fetch(
@@ -61,12 +60,12 @@ const FatchData = () => {
   )
     .then((res) => res.json())
     .then((res) => {
-      createDataObj.city = res.city.name;
-      createDataObj.temp = res.list[0].main.temp;
-      createDataObj.pressure = res.list[0].main.pressure;
-      createDataObj.description = res.list[0].weather[0].main;
-      createDataObj.humidity = res.list[0].main.humidity;
-
+      console.log(res)
+      createDataObj.city =`${city_name}`;
+      createDataObj.description =  res.description;
+      createDataObj.temp = res.temp_in_celsius;
+      createDataObj.pressure = res.pressure_in_hPa;
+      createDataObj.humidity = res.humidity_in_percent;
       arr.push(createDataObj);
     });
   }
@@ -84,10 +83,10 @@ const fetchLosAngeles = () => {
   const city_name = document
     .getElementById("los-angeles")
     .getAttribute("data-value");
-    let match = find(city_name);
-    if(match >= 0){
-      let id = `update${match}`
-      document.getElementById(id).classList.add('bg')
+    let equalData = find(city_name);
+    if(equalData >= 0){
+      let id = `update${equalData}`
+      document.getElementById(id).classList.add('bg-highlight')
     
     }else{
   fetch(
@@ -95,12 +94,12 @@ const fetchLosAngeles = () => {
   )
     .then((res) => res.json())
     .then((res) => {
-      createDataObj.city = res.city.name;
-      createDataObj.temp = res.list[0].main.temp;
-      createDataObj.pressure = res.list[0].main.pressure;
-      createDataObj.description = res.list[0].weather[0].main;
-      createDataObj.humidity = res.list[0].main.humidity;
-
+      console.log(res)
+      createDataObj.city =`${city_name}`;
+      createDataObj.description =  res.description;
+      createDataObj.temp = res.temp_in_celsius;
+      createDataObj.pressure = res.pressure_in_hPa;
+      createDataObj.humidity = res.humidity_in_percent;
       arr.push(createDataObj);
     });
   }
@@ -118,11 +117,11 @@ const fetchLesVegas = () => {
   const city_name = document
     .getElementById("las-vegas")
     .getAttribute("data-value");
-    let match = find(city_name);
-    if(match >= 0){
-      console.log(match)
-      let id = `update${match}`
-      document.getElementById(id).classList.add('bg')
+    let equalData = find(city_name);
+    if(equalData >= 0){
+      console.log(equalData)
+      let id = `update${equalData}`
+      document.getElementById(id).classList.add('bg-highlight')
     
     }else{
   fetch(
@@ -130,22 +129,26 @@ const fetchLesVegas = () => {
   )
     .then((res) => res.json())
     .then((res) => {
-      createDataObj.city = res.city.name;
-      createDataObj.temp = res.list[0].main.temp;
-      createDataObj.pressure = res.list[0].main.pressure;
-      createDataObj.description = res.list[0].weather[0].main;
-      createDataObj.humidity = res.list[0].main.humidity;
+      console.log(res)
+      createDataObj.city =`${city_name}`;
+      createDataObj.description =  res.description;
+      createDataObj.temp = res.temp_in_celsius;
+      createDataObj.pressure = res.pressure_in_hPa;
+      createDataObj.humidity = res.humidity_in_percent;
+
 
       arr.push(createDataObj);
     });
   }
 };
 
-let remark;
+let findValue;
 function find(val){
   for(let i=0; i<arr.length; i++){
-  if(arr[i].city.toLowerCase() == val){
- remark = i;
+    console.log(i);
+  if(arr[i].city == val){
+ findValue = i;
+ console.log(findValue);
  return i;
   } 
 }
@@ -160,12 +163,12 @@ function handleSearch(){
     humidity: "",
   };
   const city_name = document.getElementById('input').value;
-  let match = find(city_name);
+  let equalData = find(city_name);
 
-  if(match >= 0){
-    console.log(match)
-    let id = `update${match}`
-    document.getElementById(id).classList.add('bg')
+  if(equalData >= 0){
+    console.log(equalData)
+    let id = `update${equalData}`
+    document.getElementById(id).classList.add('bg-highlight')
   }
   else{
   fetch(
@@ -173,18 +176,20 @@ function handleSearch(){
   )
     .then((res) => res.json())
     .then((res) => {
-      createDataObj.city = res.city.name;
-      createDataObj.temp = res.list[0].main.temp;
-      createDataObj.pressure = res.list[0].main.pressure;
-      createDataObj.description = res.list[0].weather[0].main;
-      createDataObj.humidity = res.list[0].main.humidity;})
+      console.log(res)
+      createDataObj.city =`${city_name}`;
+      createDataObj.description =  res.description;
+      createDataObj.temp = res.temp_in_celsius;
+      createDataObj.pressure = res.pressure_in_hPa;
+      createDataObj.humidity = res.humidity_in_percent;
+    })
 
       arr.push(createDataObj);
     }
 }
 
 
-function map() {
+function showData() {
   arr.map((createDataObj, idx) => {
     let parent = document.createElement("div");
     parent.className = "parent";
@@ -210,13 +215,14 @@ function map() {
     input.id=idx;
     input.value = "delete";
     input.style.all = "unset";
+    input.style.textDecoration = "underline";
     input.style.color = "blue";
     input.style.cursor = "pointer";
     input.addEventListener('click',(e)=>{
     let index = e.target.id;
     arr.splice(index,1)
     document.getElementById("child-container").innerHTML = "";
-    map()
+    showData();
     })
     empty.appendChild(input);
 
@@ -226,70 +232,76 @@ function map() {
     parent.appendChild(pressure);
     parent.appendChild(humidity);
     parent.appendChild(empty);
-    appent.appendChild(parent);
+    fatchDataContainer.appendChild(parent);
   });
 }
 
 document.getElementById("london").addEventListener("click", () => {
   fetchLondon();
-  if(remark == undefined){
+  if(findValue == undefined){
   setTimeout(() => {
     if (arr.length !== 0) {
       document.getElementById("child-container").innerHTML = "";
     }
-    map();
+    showData();
   }, 1000);
 }
-remark = undefined;
+findValue = undefined;
 });
 
 document.getElementById("new-york").addEventListener("click", () => {
   FatchData();
-  if(remark == undefined){
+  if(findValue == undefined){
   setTimeout(() => {
     document.getElementById("child-container").innerHTML = "";
-    map();
+    showData();
   }, 1000);
 }
-remark = undefined;
+findValue = undefined;
 });
 
 document.getElementById('los-angeles').addEventListener("click", ()=>{
 fetchLosAngeles()
-if(remark == undefined){
+if(findValue == undefined){
 setTimeout(()=>{
   document.getElementById("child-container").innerHTML = "";
-  map()
+  showData();
 },1000)
 }
-remark = undefined;
+findValue = undefined;
 });
 
 document.getElementById('las-vegas').addEventListener("click", ()=>{
   fetchLesVegas();
-  if(remark == undefined){
+  if(findValue == undefined){
   setTimeout(()=>{
     document.getElementById("child-container").innerHTML = "";
-    map()
+    showData();
   },1000)
 }
-remark = undefined;
+findValue = undefined;
   });
   document.getElementById('btn').addEventListener("click", ()=>{
     handleSearch();
-    if(remark == undefined){
+    if(findValue == undefined){
       setTimeout(()=>{
         document.getElementById("child-container").innerHTML = "";
-        map()
+        showData();
       },1000)
     }
-    remark = undefined;
+    findValue = undefined;
     
     });
+    document.getElementById('getbtn').addEventListener("click", ()=>{
+      fetchLondon();
+      if(findValue == undefined){
+        setTimeout(()=>{
+          document.getElementById("child-container").innerHTML = "";
+          showData();
+        },1000)
+      }
+      findValue = undefined;
+      
+      });
 
-
-    document.getElementById
-
-
-
-    console.log(arr)
+   
