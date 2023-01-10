@@ -1,4 +1,4 @@
-body{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,10 +11,53 @@ header{
     justify-content: center;
     align-items: center;
 }
-main{
-    display: flex;
-    height: 100vh;
+.bg-color{
+    background-color: #4472C4; 
+    color: white;
+    font-size: 19px;
+    font-weight: 600;
 }
+.main{
+    display: flex;
+    height: 80vh;
+    width: 98vw;
+    margin: auto;
+    border: 4px solid gray;
+}
+.list-of-country{
+    width: 90%;
+    margin: auto;
+}
+hr{
+    width: 5.6px;
+    background: #201f1f;
+}
+li{
+    padding: 10px 5px;
+    list-style: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid rgb(31, 31, 31);
+}
+.info{
+    background-color: #4472C4;
+    color: white;
+    border: 1px solid black;
+    width: 15vw;
+    font-size: 19px;
+    font-weight: 600;
+    padding: 6px;
+  }
+  thead{
+    margin-top: 25px;
+  }
+  table{
+    border: 1px solid black;
+    width:100%;
+    height: 60%;
+    margin: auto;
+  }
 .left-side{
     width: 15vw;
     position: relative;
@@ -24,14 +67,18 @@ main{
    display: flex;   
    flex-direction: column;
    position: absolute;
-   top: 30px;
+   top: 38px;
    left: 5%;
 }
 .left-inner-code button{
-    padding: 5px;
+    padding: 9px;
+    width: 83%;
+    margin: auto;
     margin-bottom: 5px;
     border-radius: 5px;
     border: none;
+    font-size: 17px;
+    font-weight: 600;
     background-color: #4472C4;
     color: #ffffff;
     cursor: pointer;
@@ -59,6 +106,10 @@ cursor: pointer;
     border: 1px solid slategray;
     border-radius: 5px;
     outline: none;
+    position: relative;
+    top: 17px;
+    font-size: 17px;
+
 }
 .search-sec button{
     width: 33%;
@@ -68,29 +119,23 @@ cursor: pointer;
     color: #ffffff;
     border: none;
    position: absolute;
-   right: 1px;
+   right: 17px;
+   top: 17px;
+   font-size: 17px;
+   font-weight: 600;
    border: 1px solid slategray;
    cursor: pointer;
 }
 
 
 #append-content{
-    width: 90%;
+    width: 98%;
    /* background-color: rgb(204, 240, 240); */
     position: absolute;
     top: 80px;
-    left: 5%;
+    left: 0.9%;
 }
-.content{
-   display: flex;
-   background-color: #4472C4;
-}
-.content div{
-    width: 17%;
-    padding: 5px 0px 5px 4px;
-    border-right: 1px solid rgb(248, 244, 244);
-    color: #ffffff;
-}
+
 .parent{
     display: flex;
 }
@@ -100,12 +145,19 @@ cursor: pointer;
     border: 1px solid gray;
     color: #000000;
 }
-.bg{
+.bg-highlight{
 background-color: rgb(244, 201, 61);
+
 }
 .border{
     outline-color: #6db131;
     outline-style: solid;
     outline-width: 2px;
-    border-radius: 5px;
+}
+#child-container{
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    border: 1px solid #1c1b1b;
+    height: 237px;
 }
