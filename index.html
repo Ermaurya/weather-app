@@ -11,18 +11,22 @@
     <header>
       <h2>Shubham maurya Weather App</h2>
     </header>
-    <main>
-      <div class="left-side">
-        <div class="left-inner-code">
-          <button>Get Weather</button>
-          <div style="background-color: #4472C4; color: white">
+      <div class="main">
+
+        <div class="left-side">
+          <div class="left-inner-code">
+          <button id='getbtn'>Get Weather</button>
+          <div class="list-of-country bg-color">
             City
           </div>
-          <div id="london" data-value="london">London</div>
-          <div id="new-york" data-value="new york">New York</div>
-          <div id="los-angeles" data-value="los angeles">Los Angeles</div>
-          <div id="las-vegas" data-value="las vegas">Las Vegas</div>
-        </div>
+          <ul class="list-of-country">
+
+            <li id="london" data-value="London">London</li>
+            <li id="new-york" data-value="New York">New York</li>
+            <li id="los-angeles" data-value="Los Angeles">Los Angeles</li>
+            <li id="las-vegas" data-value="Las Vegas">Las Vegas</li>
+          </ul>
+          </div>
       </div>
       <hr />
       <div class="right-side">
@@ -31,18 +35,25 @@
           <button id="btn">Search</button>
         </div>
         <div id="append-content">
-        <div class="content">
-          <div>City</div>
-          <div>Description</div>
-          <div>Tempetature</div>
-          <div>Pressure</div>
-          <div>humidity</div>
-          <div></div>
-        </div>
-        <div id="child-container"></div>
+  
+          <table>
+                    
+            <thead>
+        <tr>
+        <th class="info">City</th>
+        <th class="info">Description</th>
+        <th class="info">Temperature(C)</th>
+        <th class="info">Pressure(hPa)</th>
+        <th class="info">Data Age(Hrs)</th>
+        <th class="info">Actions</th>
+        </tr>
+    </thead>
+    </table>
+        
+        <div id="child-container" class="nodata">nodata</div>
         </div>
       </div>
-    </main>
+  </div>
 
     <script src="index.js"></script>
   </body>
